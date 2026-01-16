@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { FC } from "react";
 
-import { toSlug } from "@/app/services/toSlug";
-import Link from "next/link";
+import { toSlug } from "@/app/utils/toSlug";
 
+import Link from "next/link";
 import { CharacterPreviewItemPropsType } from "./types";
 
 export const CharacterPreviewItem: FC<CharacterPreviewItemPropsType> = ({
@@ -12,7 +12,7 @@ export const CharacterPreviewItem: FC<CharacterPreviewItemPropsType> = ({
   name,
   gender,
 }) => {
-  const slug = `/${id}/${toSlug(name)}`
+  const slug = `/characters/${id}/${toSlug(name)}`;
 
   return (
     <li className="border-2 border-amber-600">

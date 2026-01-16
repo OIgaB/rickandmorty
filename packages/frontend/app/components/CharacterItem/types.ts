@@ -1,15 +1,17 @@
-type GenderType = "Female" | "Male" | "unknown";
+export type GenderType = "Female" | "Male" | "Genderless" | "unknown";
 type StatusType = "Alive" | "Dead" | "unknown";
 type SpeciesType = "Human" | "Alien";
 
-type OriginType = {
-  name: string;
-  url: string;
-};
-
 type LocationType = {
   name: string;
-  url: string;
+  type: string;
+  dimension: string;
+};
+
+export type EpisodeType = {
+  id: string;
+  name: string;
+  episode: string;
 };
 
 export interface CharacterItemPropsType {
@@ -19,9 +21,8 @@ export interface CharacterItemPropsType {
   gender: GenderType;
   status: StatusType;
   species: SpeciesType;
-  origin: OriginType;
-  episode: string[];
-  type: string;
+  origin: LocationType;
   location: LocationType;
-  url: string;
+  type: string;
+  episode: EpisodeType[];
 }
