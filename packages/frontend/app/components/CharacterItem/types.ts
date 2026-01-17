@@ -2,10 +2,8 @@ export type GenderType = "Female" | "Male" | "Genderless" | "unknown";
 type StatusType = "Alive" | "Dead" | "unknown";
 type SpeciesType = "Human" | "Alien";
 
-type LocationType = {
+type OriginType = {
   name: string;
-  type: string;
-  dimension: string;
 };
 
 export type EpisodeType = {
@@ -21,8 +19,7 @@ export interface CharacterItemPropsType {
   gender: GenderType;
   status: StatusType;
   species: SpeciesType;
-  origin: LocationType;
-  location: LocationType;
+  origin: OriginType;
   type: string;
   episode: EpisodeType[];
 }

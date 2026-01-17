@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { FC } from "react";
 
-import { CharacterItemPropsType } from "./types";
 import { EpisodeItem } from "../EpisodeItem";
+import { CharacterItemPropsType } from "./types";
 
 export const CharacterItem: FC<CharacterItemPropsType> = ({
   image,
@@ -10,16 +10,7 @@ export const CharacterItem: FC<CharacterItemPropsType> = ({
   gender,
   status,
   species,
-  origin: {
-    name: originName,
-    type: originType,
-    dimension: originDimension,
-  },
-  location: {
-    name: locationName,
-    type: locationType,
-    dimension: locationDimension,
-  },
+  origin: { name: originName },
   type,
   episode,
 }) => {
@@ -27,8 +18,8 @@ export const CharacterItem: FC<CharacterItemPropsType> = ({
     episode.length === 1
       ? `Meet ${name} in the following Episode: `
       : episode.length > 1
-      ? `Meet ${name} in the following Episodes: `
-      : "";
+        ? `Meet ${name} in the following Episodes: `
+        : "";
 
   return (
     <div>
@@ -57,15 +48,6 @@ export const CharacterItem: FC<CharacterItemPropsType> = ({
         <span className="max-w-md text-lg leading-8 text-zinc-600">
           {originName}
         </span>
-      </p>
-      <p className="font-medium text-zinc-950">origin type: {originType}</p>
-      <p className="font-medium text-zinc-950">
-        origin dimension: {originDimension}
-      </p>
-      <p className="font-medium text-zinc-950">Location name: {locationName}</p>
-      <p className="font-medium text-zinc-950">Location type: {locationType}</p>
-      <p className="font-medium text-zinc-950">
-        Location dimension: {locationDimension}
       </p>
       {episode.length > 0 && (
         <>

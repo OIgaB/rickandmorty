@@ -13,14 +13,6 @@ export const GET_CHARACTER_BY_ID = gql`
 
       origin {
         name
-        type
-        dimension
-      }
-
-      location {
-        name
-        type
-        dimension
       }
 
       episode {
