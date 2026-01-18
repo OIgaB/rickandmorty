@@ -10,7 +10,17 @@
     "front-dev": "npm run dev -w frontend",
     "front-build": "npm run build -w frontend",
     "front-start": "npm run start -w frontend",
-    "front-lint": "npm --workspace frontend lint",
+    "front-lint": "npm run lint -w frontend",
+
+    "back-dev": "npm run start:dev -w backend",
+    "back-build": "npm run build -w backend",
+    "back-start": "npm run start:prod -w backend",
+    "back-lint": "npm run lint -w backend",
+
+    "db-generate": "npm run prisma generate -w backend",
+    "db-seed": "npm run prisma db seed -w backend",
+    "db-studio": "npm run prisma studio -w backend",
+    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "workspaces": [

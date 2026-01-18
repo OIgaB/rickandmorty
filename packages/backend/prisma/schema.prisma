@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Gender {
+  Female
+  Male
+  Genderless
+  unknown
+}
+
+enum Status {
+  Alive
+  Dead
+  unknown
+}
+
+enum Species {
+  Human
+  Alien
+}
+
+model Origin {
+  id                  String       @id @default(uuid())
+  name                String       @unique
+  originCharacters    Character[]  @relation("OriginRelation")
+}
+
+model Episode {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  episode     String
+  characters  Character[]
+}
+
+model Character {
+  id          String     @id @default(uuid())
+  name        String
+  image       String
+  status      Status     @default(unknown)
+  gender      Gender     @default(unknown)
+  species     Species
+  type        String
+  originId    String
+  origin      Origin   @relation("OriginRelation", fields: [originId], references: [id])
+  episodes    Episode[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
