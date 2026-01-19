@@ -18,7 +18,6 @@
     "back-lint": "npm run lint -w backend",
 
     "db-generate": "npm run prisma generate -w backend",
-    "db-seed": "npm run prisma db seed -w backend",
     "db-studio": "npm run prisma studio -w backend",
     
     "test": "echo \"Error: no test specified\" && exit 1"
