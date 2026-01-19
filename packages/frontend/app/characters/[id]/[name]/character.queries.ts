@@ -15,7 +15,7 @@ export const GET_CHARACTER_BY_ID = gql`
         name
       }
 
-      episode {
+      episodes {
         id
         name
         episode

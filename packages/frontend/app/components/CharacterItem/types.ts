@@ -21,5 +21,5 @@ export interface CharacterItemPropsType {
   species: SpeciesType;
   origin: OriginType;
   type: string;
-  episode: EpisodeType[];
+  episodes: EpisodeType[];
 }

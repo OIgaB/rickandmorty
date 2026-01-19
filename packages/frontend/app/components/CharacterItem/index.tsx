@@ -12,12 +12,12 @@ export const CharacterItem: FC<CharacterItemPropsType> = ({
   species,
   origin: { name: originName },
   type,
-  episode,
+  episodes,
 }) => {
   const episodeTitle =
-    episode.length === 1
+    episodes.length === 1
       ? `Meet ${name} in the following Episode: `
-      : episode.length > 1
+      : episodes.length > 1
         ? `Meet ${name} in the following Episodes: `
         : "";
 
@@ -49,11 +49,11 @@ export const CharacterItem: FC<CharacterItemPropsType> = ({
           {originName}
         </span>
       </p>
-      {episode.length > 0 && (
+      {episodes.length > 0 && (
         <>
           <p className="font-medium text-zinc-950">{episodeTitle}</p>
           <ul>
-            {episode.map((item) => (
+            {episodes.map((item) => (
               <EpisodeItem key={item.id} {...item} />
             ))}
           </ul>
