@@ -1,6 +1,6 @@
 "use client";
 
-import { CharacterItem } from "@/app/components";
+import { CharacterItem, CharacterSkeleton, ErrorBlock } from "@/app/components";
 import { useCharacter } from "./useCharacter";
 
 type Props = {
@@ -8,10 +8,19 @@ type Props = {
 };
 
 export default function CharacterClient({ id }: Props) {
-  const { data, isLoading, error } = useCharacter(id);
+  const { data, isLoading, error, refetch } = useCharacter(id);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error || !data) return <p>Character not found</p>;
+  if (isLoading) return <CharacterSkeleton />;
 
-  return <div>{!isLoading && data && <CharacterItem {...data} />}</div>;
+  if (error || !data) {
+    return (
+      <ErrorBlock
+        error={error || new Error("Character not found")}
+        refetch={refetch}
+        errorText="Database Error"
+      />
+    );
+  }
+
+  return <CharacterItem {...data} />;
 }

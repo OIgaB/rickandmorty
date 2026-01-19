@@ -1,3 +1,4 @@
+export * from "./BioInfoField";
 export * from "./CharacterItem";
 export * from "./CharacterPreviewItem";
 export * from "./CharacterSkeleton";
