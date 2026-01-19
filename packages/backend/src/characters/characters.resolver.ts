@@ -1,4 +1,4 @@
-import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, ID, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CharactersService } from './characters.service.js';
 import { CreateCharacterInput } from './dto/create-character.input.js';
 import { UpdateCharacterInput } from './dto/update-character.input.js';
@@ -20,8 +20,8 @@ export class CharactersResolver {
     return this.charactersService.findAll();
   }
 
-  @Query(() => Character, { name: 'character' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  @Query(() => Character, { name: 'character', nullable: true })
+  findOne(@Args('id', { type: () => ID }) id: string) {
     return this.charactersService.findOne(id);
   }
 

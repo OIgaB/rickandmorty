@@ -3,13 +3,33 @@
 # ------------------------------------------------------
 
 type Character {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  episodes: [Episode!]!
+  gender: Gender!
+  id: ID!
+  image: String!
+  name: String!
+  origin: Origin!
+  species: Species!
+  status: Status!
+  type: String!
 }
 
 input CreateCharacterInput {
   """Example field (placeholder)"""
   exampleField: Int!
+}
+
+type Episode {
+  episode: String!
+  id: ID!
+  name: String!
+}
+
+enum Gender {
+  Female
+  Genderless
+  Male
+  unknown
 }
 
 type Mutation {
@@ -18,9 +38,25 @@ type Mutation {
   updateCharacter(updateCharacterInput: UpdateCharacterInput!): Character!
 }
 
+type Origin {
+  id: ID!
+  name: String!
+}
+
 type Query {
-  character(id: Int!): Character!
+  character(id: ID!): Character
   characters: [Character!]!
+}
+
+enum Species {
+  Alien
+  Human
+}
+
+enum Status {
+  Alive
+  Dead
+  unknown
 }
 
 input UpdateCharacterInput {
